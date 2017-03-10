@@ -165,7 +165,7 @@ int main(){
 				cin>>elemento;
 				if(lista.buscar(elemento))
 				{
-					cout<<"El elemento se encuentra en "<<lista.buscar(elemento);
+					cout<<"El elemento se encuentra en "<<lista.buscar();
 				}
 				else
 				{
