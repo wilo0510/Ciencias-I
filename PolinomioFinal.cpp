@@ -2,7 +2,7 @@
 #include<math.h>
 /*
 Wilmer Ricardo Pachon Lopez 20142020056
-Camilo Armando Rozo Piñeros 20142020152
+Camilo Armando Rozo PiÃ±eros 20142020152
 */
 using namespace std;
 
@@ -26,7 +26,83 @@ class Polinomio{
 	 void derivar();
 	 void integrar();
 	 Polinomio operator+(Polinomio);
+	 Polinomio sumaPoly(Polinomio,Polinomio );
 };
+Polinomio Polinomio :: sumaPoly(Polinomio a,Polinomio b )
+{
+	float c;
+	 Nodo *p, *q;
+	 p = a.cab;
+	 q = b.cab;
+	 
+	 while (p != NULL && q != NULL)
+	 { if (p->expo == q->expo)
+	 { c = p->coef + q->coef;
+	 if (c != 0)
+	 agregar(p->expo,c);
+	 p = p->sig;
+	 q = q->sig;
+	 }else
+	 if (p->expo > q->expo)
+	 { agregar(p->expo,p->coef);
+	 p = p->sig;
+	 }
+	 else {
+	 agregar(q->expo,q->coef);
+	 q = q->sig;
+	 }
+	 }
+	 while( p != NULL)
+	 { agregar(p->expo,p->coef);
+	 p = p->sig;
+	 }
+	 while( q != NULL)
+	 { agregar(q->expo,q->coef);
+	 q = q->sig;
+	 }
+	 return *this;
+}
+Polinomio Polinomio::operator+(Polinomio a)
+{
+	float c;
+ 	Nodo *p=cab, *q=a.cab;
+ 	
+ 	while (p != NULL && q != NULL)
+ 		{ 
+		 if (p->expo == q->expo)
+ 			{ 
+			 	c = p->coef + q->coef;
+ 				if (c != 0)
+ 				agregar(p->expo,c);
+ 				p = p->sig;
+ 				q = q->sig;
+ 				
+ 			}
+			else
+ 			if (p->expo > q->expo)
+ 			{
+			  	agregar(p->expo,p->coef);
+ 				p = p->sig;
+ 			}
+ 			else {
+ 				agregar(q->expo,q->coef);
+ 				q = q->sig;
+ 			}
+ 		}
+ 	while( p != NULL)
+ 		{ 
+		 	agregar(p->expo,p->coef);
+ 			p = p->sig;
+ 		}
+ 	while( q != NULL)
+ 		{ 
+		 	agregar(q->expo,q->coef);
+ 			q = q->sig;
+ 		}
+ 	return *this;
+	
+}
+
 Polinomio::Polinomio(int grado){
 	this->grado=grado;					 
     cab=NULL;
