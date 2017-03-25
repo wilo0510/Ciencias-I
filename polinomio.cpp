@@ -2,7 +2,7 @@
 #include<math.h>
 /*
 Wilmer Ricardo Pachon Lopez 20142020056
-Camilo Armando Rozo Piñeros 20142020152
+Camilo Armando Rozo PiÃ±eros 20142020152
 */
 using namespace std;
 
@@ -113,6 +113,18 @@ void Polinomio::ordenar(){
    }
 }
 
+void Polinomio::dividir(float num ){
+	 Nodo *p=cab;
+	char division;
+	cout<<"La division para el divisor "<<"X-"<<num<<"es : \n";	 
+	 while(p!=NULL){   //while(p)
+	 if(p->expo>1 ){
+	 	for(int i=1;i<p->expo;i++)
+		cout<<pow(p->coef,i)<<"X^"<<p->expo-i<<"+";	
+	   p=p->sig;
+     
+}}}
+
 char menu(){
   char opcion;
   cout<<"\n   MENU\n";
@@ -149,6 +161,7 @@ char menudos(){
 	 
 int main(){
 	int n,elemento;
+	float x,c;
 	char opcion;
 	cout<<"De que grado es el polinomio? ";
 	cin>>n;
@@ -209,8 +222,14 @@ int main(){
 		            polinomio.cargar();
 		            break;
           case 'd':
-		  case 'D':	cout<<"La DIVISION de los polinomios es : \n";
-		            polinomio.mostrar();
+		  case 'D':	
+		  cout<<"Cargue el  polinomio dividendo: \n";
+		  polinomio.cargar();
+			cout<<"Cargue el  polinomio divisor de grado 1 de la forma (de la forma (X-a)): \n";
+
+		 cout<<"Ingrese la constante (a): \n";	
+		  cin>>c;
+		  polinomio.dividir(c);
 		            cout<<endl;
 		            break;
 		            
