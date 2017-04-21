@@ -1,0 +1,18 @@
+MENU 
+- Arbol Binario
+-Arbol Binario Ordenado
+-AVL
+
+para cada uno un submenu:
+
+-Agregar
+-Eliminar - MayorProfundidad -Elemento dado
+-Mostrar
+ -preorden
+ -Inorden
+ -Postorden
+ -Niveles
+-Buscar
+-Profundidad
+-Contar Nodos
+-Contar Hojas 
